@@ -26,8 +26,8 @@ app.get('/register', access, (req, res) => {
             json: { 
                 "ShortCode": "600618",
                 "ResponseType": "Complete",
-                "ConfirmationURL": "http://localhost:5000/confirmation",
-                "ValidationURL": "http://localhost:5000/validation"
+                "ConfirmationURL": "https://whispering-brook-52781.herokuapp.com/confirmation",
+                "ValidationURL": "https://whispering-brook-52781.herokuapp.com/validation"
 
             }
         }, 
