@@ -71,7 +71,7 @@ app.post('/timeout_url', (req, res) => {
 }) 
 app.post('/result_url', (req, res) => {
     console.log('......Result URL.......') 
-    console.log(req.body)
+    console.log(req.body.Result.ResultParameters)
 }) 
 app.post('/confirmation', (req, res) => {
     console.log('......confirmation.......') 
