@@ -1,6 +1,9 @@
- const access = (req, res, next) => { 
+const request = require('request') 
+const { CONSUMER_KEY }= require('../config/myConfig')
+const { CONSUMER_SECRET} = require('../config/myConfig') 
+const access = (req, res, next) => { 
     let url = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials"
-    let auth = new Buffer("AbHBls0VVrs6oYaek6f8fwuSPok1mjEH:h2A6xCmGCJnAhl2N").toString('base64')
+    let auth = new Buffer(CONSUMER_KEY + ":" + CONSUMER_SECRET).toString('base64')
 
     request(
         {
@@ -14,10 +17,12 @@
                 console.log(error)
             } 
             else{
-                req.access_token = JSON.parse(body).access_token 
+                req.access_token = JSON.parse((body)).access_token
                 next()
             }
         }
     )
 
-}
+} 
+ 
+module.exports = access
