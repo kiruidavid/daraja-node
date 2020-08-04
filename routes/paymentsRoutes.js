@@ -58,9 +58,9 @@ router.get('/simulate', access, (req, res) => {
           
           "ShortCode": SHORTCODE,
           "CommandID":"CustomerPayBillOnline",
-          "Amount":"3",
-          "Msisdn":MSISDN,
-          "BillRefNumber":"TestAPI"
+          "Amount":"100",
+          "Msisdn": MSISDN,
+          "BillRefNumber":"testAPI"
         }
       },
       function (error, response, body) {
