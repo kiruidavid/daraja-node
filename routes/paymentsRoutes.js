@@ -3,7 +3,8 @@ const request = require('request')
 
 const router = express.Router() 
 
-const access = require('../middleware/access')
+const access = require('../middleware/access') 
+const { SHORTCODE } = require('../config/myConfig')
 
 
 
@@ -25,8 +26,8 @@ router.get('/register', access, (req, res) => {
           "Authorization" : auth
         },
         json : {
-          "ShortCode": " ",
-          "ResponseType": " ",
+          "ShortCode": SHORTCODE,
+          "ResponseType": "Complete",
           "ConfirmationURL": "https://whispering-brook-52781.herokuapp.com/payments/confirmation",
           "ValidationURL": "https://whispering-brook-52781.herokuapp.com/payments/validation_url"
         }
