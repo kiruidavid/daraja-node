@@ -8,7 +8,7 @@ const PASSKEY = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c91
 const LNM_SHORTCODE = '174379'
 
 let datenow = new Date()
-const TIMESTAMP = datenow.getFullYear() + "" + datenow.getMonth() + "" + datenow.getDate() + "" + datenow.getHours() + "" + datenow.getMinutes() + "" + datenow.getSeconds() + ""
+const TIMESTAMP = datenow.getFullYear() + "" + "" + datenow.getMonth() + "" + "" + datenow.getDate() + "" + "" + datenow.getHours() + "" + "" + datenow.getMinutes() + "" + "" + datenow.getSeconds() 
 const PASSWORD = new Buffer.from(LNM_SHORTCODE + PASSKEY + TIMESTAMP).toString('base64')
 
 module.exports = {CONSUMER_KEY, 
