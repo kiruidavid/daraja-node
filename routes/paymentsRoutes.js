@@ -143,7 +143,7 @@ router.get('/lnm', access, (req, res) => {
 }) 
 router.post('/callback', (req, res) => {
   console.log('....callback....') 
-  console.log(req.body.Body)
+  res.status(200).json(body)
 })
 router.post('/timeout_url', (req, res) => {
   console.log('....timeout....')
@@ -151,7 +151,7 @@ router.post('/timeout_url', (req, res) => {
 }) 
 router.post('/result_url', (req, res) => {
   console.log('....result....')
-  console.log(req.body.Result)
+  res.status(200).json(body)
 })  
 
 router.post('/confirmation', (req, res) => {
