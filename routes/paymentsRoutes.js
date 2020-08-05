@@ -4,7 +4,7 @@ const request = require('request')
 const router = express.Router() 
 
 const access = require('../middleware/access') 
-const { SHORTCODE, MSISDN} = require('../config/myConfig')
+const { SHORTCODE, MSISDN, SECURTITY_CREDENTIALS, INITIATOR_NAME} = require('../config/myConfig')
 
 
 
@@ -72,7 +72,48 @@ router.get('/simulate', access, (req, res) => {
         }
       }
     )
-})
+}) 
+router.get('/account_balance', access, (req, res) => {
+  url = "https://sandbox.safaricom.co.ke/mpesa/accountbalance/v1/query"
+  auth = "Bearer " + oauth_token;
+
+  request(
+    {
+      method: 'POST',
+      url : url,
+      headers : {
+        "Authorization" : auth
+      },
+      json : {
+        "Initiator": INITIATOR_NAME,
+        "SecurityCredential": SECURTITY_CREDENTIALS,
+        "CommandID":"AccountBalance",
+        "PartyA": SHORTCODE,
+        "IdentifierType":"4",
+        "Remarks":"REMARKS",
+        "QueueTimeOutURL":"https://whispering-brook-52781.herokuapp.com/payments/timeout_url",
+        "ResultURL":"https://whispering-brook-52781.herokuapp.com/payments/result_url"
+        }
+    },
+    function (error, response, body) {
+      if(error){
+        console.log(error)
+      } else {
+        res.status(200).json(body)
+      }
+      
+    }
+  )
+}) 
+router.post('/timeout_url', (req, res) => {
+  console.log('....timeout....')
+  console.log(req.body)
+}) 
+router.post('/result_url', (req, res) => {
+  console.log('....result....')
+  console.log(req.body)
+})  
+
 router.post('/confirmation', (req, res) => {
     console.log('.....confirmation......') 
     console.log(req.body)
