@@ -4,7 +4,7 @@ const request = require('request')
 const router = express.Router() 
 
 const access = require('../middleware/access') 
-const { SHORTCODE, MSISDN, SECURTITY_CREDENTIALS, INITIATOR_NAME} = require('../config/myConfig')
+const { SHORTCODE, MSISDN, SECURTITY_CREDENTIALS, INITIATOR_NAME, PASSWORD, TIMESTAMP} = require('../config/myConfig')
 
 
 
@@ -105,6 +105,46 @@ router.get('/account_balance', access, (req, res) => {
     }
   )
 }) 
+router.get('/lnm', access, (req, res) => { 
+  url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
+  auth = "Bearer " + req.access_token;
+
+  request(
+    {
+      method: 'POST',
+      url : url,
+      headers : {
+        "Authorization" : auth
+      },
+    json : {
+      "BusinessShortCode": SHORTCODE,
+      "Password": PASSWORD,
+      "Timestamp": TIMESTAMP,
+      "TransactionType": "CustomerPayBillOnline",
+      "Amount": "2",
+      "PartyA": "254721949654",
+      "PartyB": SHORTCODE,
+      "PhoneNumber": "254721949654",
+      "CallBackURL": "https://whispering-brook-52781.herokuapp.com/payments/callback",
+      "AccountReference": "123TEST",
+      "TransactionDesc": "TEST"
+    }
+  },
+    function (error, response, body) {
+      if(error){
+        console.log(error)
+      }else{
+        res.status(200).json(body)
+      }
+      
+    }
+  )
+
+}) 
+router.post('/callback', (req, res) => {
+  console.log('....callback....') 
+  console.log(req.body.Result)
+})
 router.post('/timeout_url', (req, res) => {
   console.log('....timeout....')
   console.log(req.body)
