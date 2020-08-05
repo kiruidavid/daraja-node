@@ -111,7 +111,7 @@ router.post('/timeout_url', (req, res) => {
 }) 
 router.post('/result_url', (req, res) => {
   console.log('....result....')
-  console.log(req.body.Result.ResultParameters)
+  console.log(req.body.Result)
 })  
 
 router.post('/confirmation', (req, res) => {
