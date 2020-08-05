@@ -151,7 +151,7 @@ router.post('/timeout_url', (req, res) => {
 }) 
 router.post('/result_url', (req, res) => {
   console.log('....result....')
-  res.status(200).json(body)
+  console.log(req.body)
 })  
 
 router.post('/confirmation', (req, res) => {
