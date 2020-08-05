@@ -4,7 +4,7 @@ const request = require('request')
 const router = express.Router() 
 
 const access = require('../middleware/access') 
-const { SHORTCODE, MSISDN, SECURTITY_CREDENTIALS, INITIATOR_NAME, PASSWORD, TIMESTAMP} = require('../config/myConfig')
+const { SHORTCODE, MSISDN, SECURTITY_CREDENTIALS, LNM_SHORTCODE, INITIATOR_NAME, PASSWORD, TIMESTAMP} = require('../config/myConfig')
 
 
 
@@ -117,13 +117,13 @@ router.get('/lnm', access, (req, res) => {
         "Authorization" : auth
       },
     json : {
-      "BusinessShortCode": SHORTCODE,
+      "BusinessShortCode": LNM_SHORTCODE,
       "Password": PASSWORD,
       "Timestamp": TIMESTAMP,
       "TransactionType": "CustomerPayBillOnline",
       "Amount": "2",
       "PartyA": "254721949654",
-      "PartyB": SHORTCODE,
+      "PartyB": LNM_SHORTCODE,
       "PhoneNumber": "254721949654",
       "CallBackURL": "https://whispering-brook-52781.herokuapp.com/payments/callback",
       "AccountReference": "123TEST",

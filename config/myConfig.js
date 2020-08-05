@@ -11,6 +11,11 @@ let datenow = new Date()
 const TIMESTAMP = datenow.getFullYear() + "" + datenow.getMonth() + "" + datenow.getDate() + "" + datenow.getHours() + "" + datenow.getMinutes() + "" + datenow.getSeconds() + ""
 const PASSWORD = new Buffer.from(LNM_SHORTCODE + PASSKEY + TIMESTAMP).toString('base64')
 
-module.exports = {CONSUMER_KEY, CONSUMER_SECRET, SHORTCODE, MSISDN, SECURTITY_CREDENTIALS, INITIATOR_NAME, TIMESTAMP, PASSWORD}
+module.exports = {CONSUMER_KEY, 
+    CONSUMER_SECRET, SHORTCODE,
+     MSISDN, 
+     SECURTITY_CREDENTIALS, 
+     INITIATOR_NAME,
+     LNM_SHORTCODE, TIMESTAMP, PASSWORD}
 
 
