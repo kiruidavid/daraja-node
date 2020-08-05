@@ -75,7 +75,7 @@ router.get('/simulate', access, (req, res) => {
 }) 
 router.get('/account_balance', access, (req, res) => {
   url = "https://sandbox.safaricom.co.ke/mpesa/accountbalance/v1/query"
-  auth = "Bearer " + oauth_token;
+  auth = "Bearer " + req.access_token;
 
   request(
     {
