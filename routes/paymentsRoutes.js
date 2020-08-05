@@ -121,7 +121,7 @@ router.get('/lnm', access, (req, res) => {
       "Password": PASSWORD,
       "Timestamp": TIMESTAMP,
       "TransactionType": "CustomerPayBillOnline",
-      "Amount": "2",
+      "Amount": "1",
       "PartyA": "254721949654",
       "PartyB": LNM_SHORTCODE,
       "PhoneNumber": "254721949654",
