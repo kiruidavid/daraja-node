@@ -21,7 +21,7 @@ const C2bPaymentsSchema = new mongoose.Schema({
         required: false
 
     }, 
-    MSISDN: { 
+    C2B_MSISDN: { 
         type: String, 
         maxlength: 12, 
         null: true, 
