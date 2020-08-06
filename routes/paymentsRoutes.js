@@ -168,11 +168,11 @@ router.post('/confirmation',  (req, res) => {
     last_Name = req.body.LastName 
     console.log(last_Name, "this is the last name")  
     msisdn = req.body.MSISDN 
-    console.log(MSISDN, "this is the phone number") 
+    console.log(msisdn, "this is the phone number") 
     businessShortCode = req.body.BusinessShortCode 
-    console.log(BusinessShortCode, "this is the shortcode")  
+    console.log(businessShortCode, "this is the shortcode")  
 
-  const new_C2b = new C2bPayments(
+  const new_C2b = new C2bPayments.create(
    {
      TransID: trans_ID, 
      TransAmount: trans_Amount, 
