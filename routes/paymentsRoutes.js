@@ -158,7 +158,7 @@ router.post('/result_url', (req, res) => {
 router.post('/confirmation',  (req, res) => {
     console.log('.....confirmation......') 
     trans_ID = req.body.TransID 
-    console.log(TransID, "this is the transaction ID") 
+    console.log(trans_ID, "this is the transaction ID") 
     trans_Amount = req.body.TransAmount 
     console.log(trans_Amount, "this is the amount") 
     first_Name = req.body.FirstName 
