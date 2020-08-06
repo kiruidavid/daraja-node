@@ -166,6 +166,10 @@ router.post('/confirmation', (req, res) => {
     console.log(middle_name, "this is the middle name")
     last_name = req.body.LastName 
     console.log(last_name, "this is the last name")  
+    msisdn = req.body.MSISDN 
+    console.log(msisdn, "this is the phone number") 
+    business_shortcode = req.body.BusinessShortCode 
+    console.log(business_shortcode, "this is the shortcode")
 
 }) 
 router.post('/validation', (req, res) => {
