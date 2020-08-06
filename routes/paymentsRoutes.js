@@ -156,7 +156,17 @@ router.post('/result_url', (req, res) => {
 
 router.post('/confirmation', (req, res) => {
     console.log('.....confirmation......') 
-    console.log(req.body)
+    trans_id = req.body.TransID 
+    console.log(trans_id, "this is the transaction ID") 
+    trans_amount = req.body.TransAmount 
+    console.log(trans_amount, "this is the amount") 
+    first_name = req.body.FirstName 
+    console.log(first_name, "this is the first name") 
+    middle_name = req.body.MiddleName 
+    console.log(middle_name, "this is the middle name")
+    last_name = req.body.LastName 
+    console.log(last_name, "this is the last name")  
+
 }) 
 router.post('/validation', (req, res) => {
     console.log('.....validation......') 
