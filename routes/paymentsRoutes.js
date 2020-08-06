@@ -157,29 +157,32 @@ router.post('/result_url', (req, res) => {
 
 router.post('/confirmation', (req, res) => {
     console.log('.....confirmation......') 
-    trans_id = req.body.TransID 
-    console.log(trans_id, "this is the transaction ID") 
-    trans_amount = req.body.TransAmount 
-    console.log(trans_amount, "this is the amount") 
-    first_name = req.body.FirstName 
-    console.log(first_name, "this is the first name") 
-    middle_name = req.body.MiddleName 
-    console.log(middle_name, "this is the middle name")
-    last_name = req.body.LastName 
-    console.log(last_name, "this is the last name")  
-    msisdn = req.body.MSISDN 
-    console.log(msisdn, "this is the phone number") 
-    business_shortcode = req.body.BusinessShortCode 
-    console.log(business_shortcode, "this is the shortcode")  
+    TransID = req.body.TransID 
+    console.log(TransID, "this is the transaction ID") 
+    TransAmount = req.body.TransAmount 
+    console.log(TransAmount, "this is the amount") 
+    FirstName = req.body.FirstName 
+    console.log(FirstName, "this is the first name") 
+    MiddleName = req.body.MiddleName 
+    console.log(MiddleName, "this is the middle name")
+    LastName = req.body.LastName 
+    console.log(LastName, "this is the last name")  
+    MSISDN = req.body.MSISDN 
+    console.log(MSISDN, "this is the phone number") 
+    BusinessShortCode = req.body.BusinessShortCode 
+    console.log(BusinessShortCode, "this is the shortcode")  
 
   const new_C2b = new C2bPayments(
-    TransID=trans_id, 
-    TransAmount = trans_amount, 
-    FirstName = first_name,  
-    MiddleName = middle_name,
-    LastName = last_name, 
-    MSISDN = msisdn, 
-    BusinessShortCode = business_shortcode
+   {
+     TransID, 
+     TransAmount, 
+     FirstName, 
+     MiddleName,
+     LastName, 
+     MSISDN, 
+     LastName, 
+     BusinessShortCode
+   }
   ) 
     new_C2b.save().then(() => console.log('saved in the database')).catch(() => console.log('An error occured!!!'))
 
