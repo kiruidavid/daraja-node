@@ -173,13 +173,13 @@ router.post('/confirmation', (req, res) => {
     console.log(business_shortcode, "this is the shortcode")  
 
   const new_C2b = new C2bPayments({
-    trans_id, 
-    trans_amount, 
-    first_name,  
-    middle_name,
-    last_name, 
-    msisdn, 
-    business_shortcode
+    TransID=trans_id, 
+    TransAmount = trans_amount, 
+    FirstName = first_name,  
+    MiddleName = middle_name,
+    LastName = last_name, 
+    MSISDN = msisdn, 
+    BusinessShortCode = business_shortcode
   }) 
     new_C2b.save().then(() => console.log('saved in the database')).catch(() => console.log('An error occured!!!'))
 
