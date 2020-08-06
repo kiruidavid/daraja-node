@@ -2,6 +2,7 @@ const express = require('express')
 const request = require('request')
 
 const router = express.Router() 
+const C2bPayments = require('../models/c2bModels')
 
 const access = require('../middleware/access') 
 const { SHORTCODE, MSISDN, SECURTITY_CREDENTIALS, LNM_SHORTCODE, INITIATOR_NAME, PASSWORD, TIMESTAMP} = require('../config/myConfig')
@@ -169,7 +170,20 @@ router.post('/confirmation', (req, res) => {
     msisdn = req.body.MSISDN 
     console.log(msisdn, "this is the phone number") 
     business_shortcode = req.body.BusinessShortCode 
-    console.log(business_shortcode, "this is the shortcode")
+    console.log(business_shortcode, "this is the shortcode")  
+
+  const new_C2b = new C2bPayments({
+    trans_id, 
+    trans_amount, 
+    first_name,  
+    middle_name,
+    last_name, 
+    msisdn, 
+    business_shortcode
+  }) 
+    new_C2b.save().then(() => console.log('saved in the database')).catch(() => console.log('An error occured!!!'))
+
+
 
 }) 
 router.post('/validation', (req, res) => {
