@@ -172,7 +172,7 @@ router.post('/confirmation',  (req, res) => {
     businessShortCode = req.body.BusinessShortCode 
     console.log(businessShortCode, "this is the shortcode")  
 
-  const new_C2b = new C2bPayments.create(
+  const new_C2b = new C2bPayments(
    {
      TransID: trans_ID, 
      TransAmount: trans_Amount, 
